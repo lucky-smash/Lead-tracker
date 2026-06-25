@@ -1,5 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 export default function Dashboard() {
   const [analytics, setAnalytics] = useState(null);
   const [leads, setLeads] = useState([]);
@@ -8,8 +10,8 @@ export default function Dashboard() {
   const fetchData = useCallback(async () => {
     try {
       const [analyticsRes, leadsRes] = await Promise.all([
-        fetch('/api/analytics'),
-        fetch('/api/leads'),
+        fetch(`${API_URL}/api/analytics`),
+        fetch(`${API_URL}/api/leads`),
       ]);
 
       const analyticsData = await analyticsRes.json();

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+const API_URL = import.meta.env.VITE_API_URL || '';
+
 const initialForm = {
   name: '',
   email: '',
@@ -23,7 +25,7 @@ export default function LeadForm() {
     setToast(null);
 
     try {
-      const res = await fetch('/api/leads', {
+      const res = await fetch(`${API_URL}/api/leads`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
