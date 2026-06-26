@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const API_URL = import.meta.env.VITE_API_URL || '';
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '' : 'https://lead-tracker-yooh.onrender.com');
 
 export default function Dashboard() {
   const [analytics, setAnalytics] = useState(null);
