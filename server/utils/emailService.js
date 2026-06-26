@@ -26,63 +26,25 @@ const sendLeadEmail = async (lead) => {
       <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0f0f13; padding:40px 20px;">
         <tr>
           <td align="center">
-            <table width="600" cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%); border-radius:16px; overflow:hidden; border:1px solid rgba(99,102,241,0.2);">
+            <table width="600" cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%); border-radius:16px; overflow:hidden; border:1px solid rgba(99,102,241,0.2); text-align: left;">
               
-              <!-- Header -->
-              <tr>
-                <td style="padding:40px 40px 20px; text-align:center;">
-                  <div style="width:60px; height:60px; background:linear-gradient(135deg,#6366f1,#8b5cf6); border-radius:14px; margin:0 auto 20px; line-height:60px; font-size:28px;">
-                    📧
-                  </div>
-                  <h1 style="color:#f1f5f9; font-size:26px; margin:0 0 8px; font-weight:600;">
-                    Thank You, ${lead.name}!
-                  </h1>
-                  <p style="color:#94a3b8; font-size:15px; margin:0;">
-                    We've received your submission
-                  </p>
-                </td>
-              </tr>
-
               <!-- Body -->
               <tr>
-                <td style="padding:20px 40px;">
-                  <div style="background:rgba(99,102,241,0.08); border:1px solid rgba(99,102,241,0.15); border-radius:12px; padding:24px;">
-                    <p style="color:#cbd5e1; font-size:15px; line-height:1.7; margin:0 0 16px;">
-                      Hi <strong style="color:#a5b4fc;">${lead.name}</strong>,
-                    </p>
-                    <p style="color:#cbd5e1; font-size:15px; line-height:1.7; margin:0 0 16px;">
-                      Thank you for reaching out to us. We've received your requirement and our team will review it shortly.
-                    </p>
-                    <div style="background:rgba(139,92,246,0.1); border-left:3px solid #8b5cf6; border-radius:0 8px 8px 0; padding:16px 20px; margin:16px 0;">
-                      <p style="color:#94a3b8; font-size:13px; margin:0 0 6px; text-transform:uppercase; letter-spacing:1px;">
-                        Your Requirement
-                      </p>
-                      <p style="color:#e2e8f0; font-size:15px; margin:0; font-style:italic;">
-                        "${lead.requirement}"
-                      </p>
-                    </div>
-                    <p style="color:#cbd5e1; font-size:15px; line-height:1.7; margin:16px 0 0;">
-                      We'll get back to you within 24 hours with a personalized solution.
-                    </p>
+                <td style="padding:40px; color:#cbd5e1; font-size:16px; line-height:1.8;">
+                  <p style="margin:0 0 16px; font-size:18px; color:#ffffff;">Hi <strong>${lead.name}</strong>,</p>
+                  <p style="margin:0 0 16px;">Thank you for reaching out.</p>
+                  <p style="margin:0 0 24px;">We received your requirement: <strong style="color:#a5b4fc;">"${lead.requirement}"</strong></p>
+                  
+                  <!-- CTA Button -->
+                  <div style="margin:24px 0 32px;">
+                    <a href="${trackableLinkUrl}" style="display:inline-block; background:linear-gradient(135deg,#6366f1,#8b5cf6); color:#ffffff; text-decoration:none; padding:12px 28px; border-radius:8px; font-weight:600; font-size:15px; box-shadow:0 4px 12px rgba(99,102,241,0.3);">
+                      Learn more
+                    </a>
                   </div>
-                </td>
-              </tr>
-
-              <!-- CTA Button -->
-              <tr>
-                <td style="padding:20px 40px; text-align:center;">
-                  <a href="${trackableLinkUrl}" style="display:inline-block; background:linear-gradient(135deg,#6366f1,#8b5cf6); color:#ffffff; text-decoration:none; padding:14px 36px; border-radius:10px; font-size:15px; font-weight:600; letter-spacing:0.5px;">
-                    Learn More About Our Solutions →
-                  </a>
-                </td>
-              </tr>
-
-              <!-- Footer -->
-              <tr>
-                <td style="padding:24px 40px 32px; text-align:center; border-top:1px solid rgba(99,102,241,0.15);">
-                  <p style="color:#64748b; font-size:13px; margin:0;">
-                    Warm regards,<br>
-                    <strong style="color:#94a3b8;">The LeadTracker Team</strong>
+                  
+                  <p style="margin:0; color:#94a3b8; font-size:14px; border-top:1px solid rgba(99,102,241,0.15); padding-top:20px;">
+                    Regards,<br>
+                    <strong style="color:#ffffff;">Team</strong>
                   </p>
                 </td>
               </tr>
