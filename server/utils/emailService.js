@@ -1,12 +1,22 @@
 const nodemailer = require("nodemailer");
 
-const transporter = nodemailer.createTransport({
+const transporterConfig = {
   service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-});
+};
+
+// If Ethereal test email is used, override with Ethereal SMTP settings
+if (process.env.EMAIL_USER && process.env.EMAIL_USER.endsWith("@ethereal.email")) {
+  transporterConfig.service = undefined;
+  transporterConfig.host = "smtp.ethereal.email";
+  transporterConfig.port = 587;
+  transporterConfig.secure = false;
+}
+
+const transporter = nodemailer.createTransport(transporterConfig);
 
 const sendLeadEmail = async (lead) => {
   const serverUrl = process.env.SERVER_URL || "http://localhost:5000";
